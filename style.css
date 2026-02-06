@@ -1,0 +1,182 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #020617;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerLine {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(60%);
+  }
+}
+
+.float-slow {
+  animation: floatUpDown 14s ease-in-out infinite;
+}
+
+.delay-200 {
+  animation-delay: 0.2s !important;
+}
+
+.delay-400 {
+  animation-delay: 0.4s !important;
+}
+
+.delay-600 {
+  animation-delay: 0.6s !important;
+}
+
+.animate-rise {
+  animation: rise 0.9s ease forwards;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.glow-dot {
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.8);
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+.shimmer-line {
+  position: relative;
+}
+
+.shimmer-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-100%);
+  animation: shimmerLine 3s infinite;
+}
+
+.glass-tile {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  padding: 1.8rem;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(16px);
+}
+
+.trade-toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, -30px);
+  padding: 0.95rem 1.8rem;
+  background: rgba(15, 118, 110, 0.9);
+  color: #f0fdfa;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 20px 40px rgba(6, 78, 59, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 50;
+}
+
+.trade-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0px);
+}
+
+.timeframe-btn.active-range {
+  border-color: rgba(16, 185, 129, 0.8);
+  color: #bbf7d0;
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+}
+
+.quick-amount.active-amount {
+  border-color: rgba(16, 185, 129, 0.8);
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.25);
+}
+
+.quick-amount.active-amount.sell-mode {
+  border-color: rgba(244, 63, 94, 0.8);
+  color: #fb7185;
+  background: rgba(244, 63, 94, 0.12);
+  box-shadow: inset 0 0 10px rgba(244, 63, 94, 0.25);
+}
+
+.watch-item {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+  background: rgba(15, 23, 42, 0.45);
+  transition: transform 0.35s ease, border 0.35s ease;
+}
+
+.watch-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+.animate-pulse-slow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-spin-slower {
+  animation: spin 2.4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
